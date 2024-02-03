@@ -25,26 +25,5 @@ const incrementCigarCounter = async (req, res) => {
   }
 };
 
-const getSmokingHistory = async (req, res) => {
-    try {
-      const userId = req.user.id;
-      //const { fromDate, toDate } = req.body;
-  
-      //Get all the logs for the user without date filter
-      const history = await DailyLog.find({
-        userId: userId,
-      }).sort({ date: 'desc' });
-
-      // const history = await DailyLog.find({
-      //   userId: userId,
-      //   date: { $gte: fromDate, $lte: toDate },
-      // }).sort({ date: 'asc' });
-  
-      res.status(200).json({ history });
-    } catch (error) {
-        return res.status(500).json({ message: 'Internal server error' + error.message });
-    }
-  };
-
 module.exports = { incrementCigarCounter, getSmokingHistory };
   
