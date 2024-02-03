@@ -9,13 +9,13 @@ const incrementCigarCounter = async (req, res) => {
     const user = await User.findById(userId);
 
     let currentCigarCount = 0;
-    if (user.noOfCigarPerDay.has(today)) {
-      currentCigarCount = user.noOfCigarPerDay.get(today) + 1;
-      user.noOfCigarPerDay.set(today, currentCigarCount);
-    } else {
-      currentCigarCount = 1;
-      user.noOfCigarPerDay.set(today, 1);
-    }
+    // if (user.noOfCigarPerDay.has(today)) {
+    //   currentCigarCount = user.noOfCigarPerDay.get(today) + 1;
+    //   user.noOfCigarPerDay.set(today, currentCigarCount);
+    // } else {
+    //   currentCigarCount = 1;
+    //   user.noOfCigarPerDay.set(today, 1);
+    // }
 
     await user.save();
 
